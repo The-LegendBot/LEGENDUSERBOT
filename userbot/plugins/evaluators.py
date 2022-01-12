@@ -81,25 +81,7 @@ async def _(event):
         else:
             evaluation = "Success"
         final_output = f"•  Eval : \n`{cmd}` \n\n•  Result : \n`{evaluation}` \n"
-        # await eor(
-        # LEGENDevent,
-        # "**Eval Command Executed. Check out LOGGER_ID Group[Private Group Where All Message Forward]for result.**",
-        # )
-        if "session" in cmd:
-            await eor(
-                event, "String is a  Sensetive Data.\nSo, Its Protected By LegendBot"
-            )
-            return
-        if "LEGEND_STRING" in cmd:
-            await eor(
-                event, "String is a  Sensetive Data.\nSo, Its Protected By LegendBot"
-            )
-            return
-        else:
-            await eor(
-                LEGENDevent,
-                f"{final_output}",
-            )
+        await eor(LEGENDevent, f"{final_output}",)
     else:
         await edit_or_reply(
             event,
