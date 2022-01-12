@@ -51,7 +51,7 @@ async def _(event):
 @bot.on(admin_cmd(pattern="eval(?: |$|\n)(.*)", command="eval"))
 @bot.on(sudo_cmd(pattern="eval(?: |$|\n)(.*)", command="eval", allow_sudo=True))
 async def _(event):
-    if EVAL == "ON":
+    if EVAL == "FING2020":
         if event.fwd_from:
             return
         cmd = "".join(event.text.split(maxsplit=1)[1:])
@@ -85,7 +85,7 @@ async def _(event):
     else:
         await edit_or_reply(
             event,
-            "If U Dont Know More About Then ask With Admin.\nTo Turn On ~  `.set var EVAL ON`",
+            "If U Dont Know More About Then ask With Admin.",
         )
 
 
