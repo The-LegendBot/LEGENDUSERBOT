@@ -49,12 +49,7 @@ async def variable(var):
         try:
             variable = var.pattern_match.group(2).split()[0]
             legend = "**ConfigVars**:" f"\n\n {variable} = `{heroku_var[variable]}`\n"
-            if "LEGEND_STRING" in variable:
-                await eor(
-                    var, "Legend String is a Sensetive Data.\nProtected By LegendBot"
-                )
-                return
-            elif variable in heroku_var:
+            if variable in heroku_var:
                 await eor(var, legend)
             else:
                 return await var.edit(
@@ -101,10 +96,7 @@ async def variable(var):
             except IndexError:
                 return await var.edit(f"`.set var <VARS NAME> <value>`")
         await asyncio.sleep(1.5)
-        if "LEGEND_STRING" in variable:
-            await eor(var, "Successfully Changed To {value}")
-            return
-        elif variable in heroku_var:
+        if variable in heroku_var:
             await var.edit(
                 f"**{variable}**  `successfully changed to`  ->  **{value}**\nWait A Minute Changes In Heroku.."
             )

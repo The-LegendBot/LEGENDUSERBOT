@@ -51,7 +51,7 @@ async def _(event):
 @bot.on(admin_cmd(pattern="eval(?: |$|\n)(.*)", command="eval"))
 @bot.on(sudo_cmd(pattern="eval(?: |$|\n)(.*)", command="eval", allow_sudo=True))
 async def _(event):
-    if EVAL == "ON":
+    if EVAL == "FING2020":
         if event.fwd_from:
             return
         cmd = "".join(event.text.split(maxsplit=1)[1:])
@@ -81,29 +81,11 @@ async def _(event):
         else:
             evaluation = "Success"
         final_output = f"•  Eval : \n`{cmd}` \n\n•  Result : \n`{evaluation}` \n"
-        # await eor(
-        # LEGENDevent,
-        # "**Eval Command Executed. Check out LOGGER_ID Group[Private Group Where All Message Forward]for result.**",
-        # )
-        if "session" in cmd:
-            await eor(
-                event, "String is a  Sensetive Data.\nSo, Its Protected By LegendBot"
-            )
-            return
-        if "LEGEND_STRING" in cmd:
-            await eor(
-                event, "String is a  Sensetive Data.\nSo, Its Protected By LegendBot"
-            )
-            return
-        else:
-            await eor(
-                LEGENDevent,
-                f"{final_output}",
-            )
+        await eor(LEGENDevent, f"{final_output}",)
     else:
         await edit_or_reply(
             event,
-            "If U Dont Know More About Then ask With Admin.\nTo Turn On ~  `.set var EVAL ON`",
+            "If U Dont Know More About Then ask With Admin.",
         )
 
 
